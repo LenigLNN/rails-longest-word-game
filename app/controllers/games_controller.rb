@@ -1,11 +1,12 @@
 require 'open-uri'
 require 'json'
 
+# The controller of the game
 class GamesController < ApplicationController
   def english_word?(word)
     response = open("https://wagon-dictionary.herokuapp.com/#{word}")
     json = JSON.parse(response.read)
-    return json['found']
+    json['found']
   end
 
   def included?(guess, grid)
