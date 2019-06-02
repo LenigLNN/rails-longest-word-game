@@ -1,17 +1,18 @@
 <h1>Games#new</h1>
 <p>Find me in app/views/games/new.html.erb</p>
-<div style="display: flex">
+<br>
+<ul>
   <%  @letters.length.times do |index|%>
-    <div class="frame">
+    <li class="frame" style="display: inline">
       <%= @letters[index] %>
-    </div>
+    </li>
   <% end %>
-</div>
-
+</ul>
+<br>
 <p>What is the longest word you can find?</p>
 <form action="score" method="post">
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   <input type="text" name="word">
   <input id="letters" name="letters" type="hidden" value="<%= @letters.join %>"/>
-  <input type="submit" value="play">
+  <input type="submit" value="Play">
 </form>
